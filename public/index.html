@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/styles.css">
   <link rel="manifest" href="/manifest.webmanifest">
 
   <title>Budget Tracker</title>
@@ -45,5 +45,14 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="/dist/miniDb.js"></script>
   <script src="/dist/miniIndex.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js").then(reg => {
+          console.log("We found your service worker file!", reg);
+        });
+      });
+    }
+  </script>
 </body>
 </html>

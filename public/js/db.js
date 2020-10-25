@@ -52,7 +52,7 @@ function checkDatabase() {
       })
       .then(response => response.json())
       .then(() => {
-        //CLEAR PENDING TRANX ON INDEXEDDB
+        //CLEAR PENDING TRANX ON INDEXEDDB IF THE POST WAS SUCCESSFUL
         const transaction = db.transaction(["pending"], "readwrite");
         const store = transaction.objectStore("pending");
         store.clear();
